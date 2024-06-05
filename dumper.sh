@@ -99,9 +99,6 @@ done
 	[ -e ".venv" ] && source .venv/bin/activate
 }
 
-pip install wheel
-pip install backports.lzma extract-dtb protobuf==3.20.0 pycryptodome docopt zstandard twrpdtgen future requests humanize clint lz4 pycryptodomex git+https://github.com/sebaubuntu-python/aospdtgen
-
 ## See README.md File For Program Credits
 # Set Utility Program Alias
 SDAT2IMG="${UTILSDIR}"/sdat2img.py
