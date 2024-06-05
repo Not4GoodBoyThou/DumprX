@@ -256,7 +256,7 @@ printf "Extracting firmware on: %s\n" "${OUTDIR}"
 cd "${TMPDIR}"/ || exit
 
 # Oppo .ozip Check
-if [[ $(head -c12 "${FILEPATH}" 2>/dev/null | tr -d '\0') == "OPPOENCRYPT!" ]] || [[ "${EXTENSION}" == "ozip" ]]; then
+if [[ $(head -c12 "${FILEPATH}" 2>/dev/null | tr -d '\0') == "OPPOENCRYPT!" ]] && [[ "${EXTENSION}" == "ozip" ]]; then
 	printf "Oppo/Realme ozip Detected.\n"
 	# Either Move Downloaded/Re-Loaded File Or Copy Local File
 	mv -f "${INPUTDIR}"/"${FILE}" "${TMPDIR}"/"${FILE}" 2>/dev/null || cp -a "${FILEPATH}" "${TMPDIR}"/"${FILE}"
