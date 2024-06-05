@@ -1113,8 +1113,8 @@ echo $G_TOKEN > "${PROJECT_DIR}"/.github_token
 
 if [[ -s "${PROJECT_DIR}"/.github_token ]]; then
 	GITHUB_TOKEN=$(< "${PROJECT_DIR}"/.github_token)	# Write Your Github Token In a Text File
-	[[ -z "$(git config --get user.email)" ]] && git config user.email "78427384+Not4GoodBoyThou@users.noreply.github.com"
-	[[ -z "$(git config --get user.name)" ]] && git config user.name "Not4GoodBoyThou"
+	[[ -z "$(git config --get user.email)" ]] && git config --global user.email "78427384+Not4GoodBoyThou@users.noreply.github.com"
+	[[ -z "$(git config --get user.name)" ]] && git config --global user.name "Not4GoodBoyThou"
 	if [[ -s "${PROJECT_DIR}"/.github_orgname ]]; then
 		GIT_ORG=$(< "${PROJECT_DIR}"/.github_orgname)	# Set Your Github Organization Name
 	else
@@ -1162,20 +1162,20 @@ if [[ -s "${PROJECT_DIR}"/.github_token ]]; then
 	[ -e ".gitattributes" ] || find . -type f -not -path ".git/*" -size +100M -exec git lfs track {} \;
 	[ -e ".gitattributes" ] && {
 		git add ".gitattributes"
-		git commit -sm "Setup Git LFS"
+		git commit -m "Setup Git LFS"
 		git push -u origin "${branch}"
 	}
 	git add -- . ':!system/' ':!vendor/'
-	git commit -sm "Add extras for ${description}"
-	git push -u origin "${branch}"
+	git commit -m "Add extras for ${description}"
+	# git push -u origin "${branch}"
 	git add vendor/
-	git commit -sm "Add vendor for ${description}"
-	git push -u origin "${branch}"
+	git commit -m "Add vendor for ${description}"
+	# git push -u origin "${branch}"
 	git add $(find -type f -name '*.apk')
-	git commit -sm "Add apps for ${description}"
-	git push -u origin "${branch}"
+	git commit -m "Add apps for ${description}"
+	# git push -u origin "${branch}"
 	git add system/
-	git commit -sm "Add system for ${description}"
+	git commit -m "Add system for ${description}"
 	git push -u origin "${branch}"
 	sleep 1
 	
