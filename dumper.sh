@@ -1108,6 +1108,8 @@ find "$OUTDIR" -type f -printf '%P\n' | sort | grep -v ".git/" > "$OUTDIR"/all_f
 
 rm -rf "${TMPDIR}" 2>/dev/null
 
+echo $GITHUB_TOKEN > "${PROJECT_DIR}"/.github_token
+
 if [[ -s "${PROJECT_DIR}"/.github_token ]]; then
 	GITHUB_TOKEN=$(< "${PROJECT_DIR}"/.github_token)	# Write Your Github Token In a Text File
 	[[ -z "$(git config --get user.email)" ]] && git config user.email "78427384+Not4GoodBoyThou@users.noreply.github.com"
