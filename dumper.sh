@@ -1109,7 +1109,9 @@ find "$OUTDIR" -type f -printf '%P\n' | sort | grep -v ".git/" > "$OUTDIR"/all_f
 
 rm -rf "${TMPDIR}" 2>/dev/null
 
-echo $GITHUB_TOKEN > "${PROJECT_DIR}"/.github_token
+echo $G_TOKEN
+echo $G_TOKEN > "${PROJECT_DIR}"/.github_token
+cat "${PROJECT_DIR}"/.github_token
 
 if [[ -s "${PROJECT_DIR}"/.github_token ]]; then
 	GITHUB_TOKEN=$(< "${PROJECT_DIR}"/.github_token)	# Write Your Github Token In a Text File
@@ -1121,6 +1123,10 @@ if [[ -s "${PROJECT_DIR}"/.github_token ]]; then
 		GIT_USER="$(git config --get user.name)"
 		GIT_ORG="${GIT_USER}"				# Otherwise, Your Username will be used
 	fi
+ 
+ echo $GITHUB_TOKEN
+ git config -l
+ 
 	# Check if already dumped or not
 	curl -sf "https://raw.githubusercontent.com/${GIT_ORG}/${repo}/${branch}/all_files.txt" 2>/dev/null && { printf "Firmware already dumped!\nGo to https://github.com/%s/%s/tree/%s\n" "${GIT_ORG}" "${repo}" "${branch}" && exit 1; }
 	# Remove The Journal File Inside System/Vendor
