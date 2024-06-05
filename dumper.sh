@@ -1161,7 +1161,7 @@ if [[ -s "${PROJECT_DIR}"/.github_token ]]; then
 	# Commit and Push
 	printf "\nPushing to %s via HTTPS...\nBranch:%s\n" "https://github.com/${GIT_ORG}/${repo}.git" "${branch}"
 	sleep 1
-	git remote add origin https://${GITHUB_TOKEN}@github.com/${GIT_ORG}/${repo}.git "${branch}"
+	git remote add origin -t "${branch}" https://${GITHUB_TOKEN}@github.com/${GIT_ORG}/${repo}.git
 	git lfs install
 	[ -e ".gitattributes" ] || find . -type f -not -path ".git/*" -size +100M -exec git lfs track {} \;
 	[ -e ".gitattributes" ] && {
