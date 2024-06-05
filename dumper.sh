@@ -93,8 +93,6 @@ for tool_slug in "${EXTERNAL_TOOLS[@]}"; do
 	fi
 done
 
-pip install pycryptodome pycryptodomex
-
 # Activate virtual environment
 [[ "${USE_VENV}" == "false" || "${USE_VENV}" == "0" ]] || {
 	[ -e ".venv" ] && source .venv/bin/activate
