@@ -78,7 +78,7 @@ rm -rf "${TMPDIR}" 2>/dev/null
 mkdir -p "${OUTDIR}" "${TMPDIR}" 2>/dev/null
 
 EXTERNAL_TOOLS=(
-	bkerler/oppo_ozip_decrypt
+	Not4GoodBoyThou/oppo_ozip_decrypt
 	bkerler/oppo_decrypt
 	marin-m/vmlinux-to-elf
 	ShivamKumarJha/android_tools
