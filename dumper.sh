@@ -1166,13 +1166,13 @@ if [[ -s "${PROJECT_DIR}"/.github_token ]]; then
 	}
 	git add -- . ':!system/' ':!vendor/'
 	git commit -m "Add extras for ${description}"
-	# git push -u origin "${branch}"
+	git push -u origin "${branch}"
 	git add vendor/
 	git commit -m "Add vendor for ${description}"
-	# git push -u origin "${branch}"
+	git push -u origin "${branch}"
 	git add $(find -type f -name '*.apk')
 	git commit -m "Add apps for ${description}"
-	# git push -u origin "${branch}"
+	git push -u origin "${branch}"
 	git add system/
 	git commit -m "Add system for ${description}"
 	git push -u origin "${branch}"
